@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="531ae25f-9d92-437d-a86f-4c40bbf2234c" name="todasolucao" url="http://whats.todasolucao.com.br">
+        <fileTransfer rootFolder="/public_html" host="whats.todasolucao.com.br" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

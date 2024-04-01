@@ -1,0 +1,7 @@
+.login {
+    background: url('https://painel.erpcerto.com.br/img/bg-dark.jpg') !important;
+}
+input#btnLogin {
+    background-color: #000;
+    border-color: #000;
+}

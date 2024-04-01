@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="todasolucao" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="todasolucao">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/includes/conexao.php" />
+            <excludedPath path="/php.ini" />
+            <excludedPath path="/images" />
+            <excludedPath path="/img" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
