@@ -4,7 +4,7 @@ require_once("includes/padrao.inc.php");
 <html class="js adownload cssanimations csstransitions webp webp-alpha webp-animation webp-lossless wf-roboto-n4-active wf-opensans-n4-active wf-opensans-n6-active wf-roboto-n3-active wf-roboto-n5-active wf-active" dir="ltr" loc="pt-BR" lang="pt-BR">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <title><?php echo $_SESSION["parametros"]["title"]; ?></title>
     <meta name="viewport" content="width=device-width">
     <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
@@ -50,8 +50,9 @@ require_once("includes/padrao.inc.php");
                 }
                 else{ $(document).attr("title", "("+qtdNovas+") " + $("#parametrosTitle").val()); }
                 // FIM Atualiza o Title com a Quantidade de Mensagens //
-                
-                
+
+
+                <?php if($_SESSION["usuario"]["perfil"] == '0' AND $_SESSION["parametros"]["atend_triagem"] == '0' AND  $_SESSION["parametros"]["nao_exibir_triagem"] == '0'){ ?>
                 // Busco a QTD de Triagem //
                 if( $("#qtdTriagem").length ){
                     $.post("atendimento/qtdTriagem.php", {
@@ -94,6 +95,7 @@ require_once("includes/padrao.inc.php");
                         }
                     });
 				}
+                <?php } ?>
 				
                 // Busco a Qtd de Atendimentos Pendentes //
                 if( $("#qtdPendentes").length ){
@@ -320,11 +322,15 @@ require_once("includes/padrao.inc.php");
                                                     </a>                                                   
                                                 </li>
                                         <?php } ?>
-                                        <!-- Histórico de atendimentos -->                                        
-                                        <li id="historico-atendimentos" class="tooltip btNovaConversa" style="display:none;z-index:0 !important;">
-                                            <i id="iModalRelatorio" class="fas fa-history itemIcon" style="color: blueviolet;" onclick="abrirModal('#modalRelatorio');"></i>
-                                            <span class="tooltiptext tooltip-bottom">Histórico</span>
-                                        </li>
+
+                                        <?php if($_SESSION["usuario"]["perfil"] == '0'){ ?>
+                                            <!-- Histórico de atendimentos -->
+                                            <li id="historico-atendimentos" class="tooltip btNovaConversa" style="display:none;z-index:0 !important;">
+                                                <i id="iModalRelatorio" class="fas fa-history itemIcon" style="color: blueviolet;" onclick="abrirModal('#modalRelatorio');"></i>
+                                                <span class="tooltiptext tooltip-bottom">Histórico</span>
+                                            </li>
+                                        <?php } ?>
+
                                         <li class="tooltip btNovaConversa" style="z-index:0 !important;">
                                             <i id="iModalRedefinirSenha" class="fas fa-lock itemIcon" onclick="abrirModal('#modalRedefinirSenha');" style="padding-top:4px;"></i>
                                             <span class="tooltiptext tooltip-bottom">Mudar Senha</span>
@@ -358,21 +364,23 @@ require_once("includes/padrao.inc.php");
                         <div class="_1NrpZ" id="pane-side" data-list-scroll-container="true">
                             <div tabindex="-1" data-tab="3">
                                 <div>
+                                    <?php if($_SESSION["usuario"]["perfil"] == '0' AND $_SESSION["parametros"]["atend_triagem"] == '0' AND  $_SESSION["parametros"]["nao_exibir_triagem"] == '0'){ ?>
                                         <!-- Conversas -->
                                         <div class="RLfQR" style="/* height: auto; */display: contents;">
-                                            <span><i title="Atendimentos sem Setor"></i>Atendimentos sem Setor</span>
+                                            <span><i title="Atendimentos sem Setor"></i><?php echo $_SESSION["parametros"]["sem_setor"]; ?></span>
                                         </div>
                                         <div id="ListaTriagem" class="RLfQR" style="/* height: auto; */display: contents;">
                                             <!-- Lista os Atendimentos Triagem Sem Departamento -->
                                         </div>
+                                    <?php } ?>
                                     <div class="RLfQR" style="/* height: auto; */display: contents;">
-                                        <span><i title="Atendimentos em Espera"></i>Atendimentos em Espera</span>
+                                        <span><i title="Atendimentos em Espera"></i><?php echo $_SESSION["parametros"]["espera"]; ?></span>
                                     </div>
                                     <div id="ListaPendentes" class="RLfQR" style="/* height: auto; */display: contents;">
                                         <!-- Lista os Atendimentos Em Espera -->
                                     </div>
                                     <div class="RLfQR" style="/* height: auto; */display: contents;">
-                                        <span><i title="Atendimentos em Andamento"></i>Atendimentos em Andamento</span>
+                                        <span><i title="Atendimentos em Andamento"></i><?php echo $_SESSION["parametros"]["andamento"]; ?></span>
                                     </div>
                                     <div id="ListaEmAtendimento" class="RLfQR" style="/* height: auto; */display: contents;">
                                         <!-- Lista os Atendimentos Atuais -->

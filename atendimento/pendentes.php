@@ -2,11 +2,19 @@
 	// Requires //
 	require_once("../includes/padrao.inc.php");
 
-	// Definições de Variáveis //
-		$id_usuario = isset($_SESSION["usuariosaw"]["id"]) ? $_SESSION["usuariosaw"]["id"] : "";		
+    // Definições de Variáveis //
+		$id_usuario = isset($_SESSION["usuariosaw"]["id"]) ? $_SESSION["usuariosaw"]["id"] : "";
+		$htmlConversas = "";
 		$ultHora = null;
 		$ultMsg = null;
 	// FIM Definições de Variáveis //
+
+    $filtroDepartamento = '';
+
+	if ($_SESSION["usuariosaw"]["perfil"] > 0){
+       $filtroDepartamento = ' AND ta.setor IN(SELECT id_departamento FROM tbusuariodepartamento WHERE id_usuario = '.$id_usuario.')';
+	}
+
 							
 	$qryAtendPend = mysqli_query(
 		$conexao
@@ -23,6 +31,7 @@
 							FROM tbusuariodepartamento 
 
 					) 
+								$filtroDepartamento
 						ORDER BY ta.dt_atend, ta.hr_atend"
 	);
 

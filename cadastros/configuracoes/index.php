@@ -32,20 +32,15 @@
 	$isCkdcontar_tempo_espera_so_dos_clientes = "";
 	$isCkdhistorico_atendimento = "";
 	$isCkdusar_protocolo        = "";
-//	$isCkdund_neg           = "";
-//	$link1                  = "";
-//	$link2                  = "";
-//	$link3                  = "";
-//	$msg_equipe_atende 		= "";
-//	$msg_equipe_atende2     = "";
-//	$msg_cliente_canvas     = "";
+    $isCkdNaoEnviarAudio        = "";
+    $isCkdNaoExibirTriagem      = "";
 
 	if( mysqli_num_rows($existe) > 0 ){
 		$msg = mysqli_fetch_array($existe);
-		$msg_aguardando 		= $msg["msg_aguardando_atendimento"];
+		$msg_aguardando 		= str_replace("\\n","<br/>",$msg["msg_aguardando_atendimento"]);
 		$msg_inicio     		= str_replace("\\n","<br/>",$msg["msg_inicio_atendimento"]);
-		$msg_fim        		= $msg["msg_fim_atendimento"];
-		$msg_sem_expediente 	= $msg["msg_sem_expediente"];
+		$msg_fim        		= str_replace("\\n","<br/>",$msg["msg_fim_atendimento"]);
+		$msg_sem_expediente 	= str_replace("\\n","<br/>",$msg["msg_sem_expediente"]);
 		$msg_desc_inatividade	= $msg["msg_desc_inatividade"];
 		$title					= $msg["title"];
 		$minutosOffline			= $msg["minutos_offline"];
@@ -70,16 +65,12 @@
 		$historico_atendimento  = $msg["historico_atendimento"];
 		$usar_protocolo         = $msg["usar_protocolo"];
 		$tipo_menu              = $msg["tipo_menu"];
-	//	$und_neg                = $msg["und_neg"];
-	//	$link1                  = $msg["link1"];
-	//	$link2                  = $msg["link2"];
-	//	$link3                  = $msg["link3"];
-    //    $msg_equipe_atende      = $msg["msg_equipe_atende"];
-	//	$msg_equipe_atende2     = $msg["msg_equipe_atende2"];
-	//	$msg_cliente_canvas     = $msg["msg_cliente_canvas"];
-	//Comentei essas colunas que foram adicionadas pelo Cassio para criar alguns recursos como mensagem personalizada por atendente e envio dos links das redes sociais
-	//não acho interessante esses recursos ainda nesse momento //André Luiz 23/03/2023
-		
+        $andamento              = $msg["andamento"];
+        $espera                 = $msg["espera"];
+        $sem_setor              = $msg["sem_setor"];
+        $nao_aceitar_audio      = $msg["nao_aceitar_audio"];
+        $msg_nao_aceita_audio   = str_replace("\\n","<br/>",["msg_nao_aceita_audio"]);
+        $nao_exibir_triagem     = $msg["nao_exibir_triagem"];
 	
 		if( empty($msg["imagem_perfil"]) ){
 			$foto = 'images/sem_foto.png';	
@@ -91,7 +82,6 @@
 
 		// Mostra Nome do Atendente/Departamento //
 		if( $departamento_atendente === "1" ){ $isCkdDepartamntoAtendente = "checked"; }
-		
 
 		// Libera Chat //
 		if( $chat_operadores === "1" ){ $isCkdChat = "checked"; }
@@ -144,13 +134,14 @@
 		//Parametro para Usar numero de protocolos nos atendimentos
         if($usar_protocolo === "1" ){ $isCkdusar_protocolo = "checked"; }
 
+        //Parametro para Mostrar Menu de Historico para Operadores
+        if($menu_historico === "1" ){ $isCkdMenu_historico = "checked"; }
 
+        //Parametro para Não Aceitar Audio
+        if($nao_aceitar_audio === "1" ){ $isCkdNaoEnviarAudio = "checked"; }
 
-		
-
-		// Ativa Multiplas Unidades de negocios
-		//if( $und_neg === "1" ){ $isCkdund_neg = "checked"; }
-		
+        //Parametro para Não Exibir Triagem
+        if ($nao_exibir_triagem === "1" ){ $isCkdNaoExibirTriagem = "checked"; }
 		
 	}
 ?>
@@ -159,6 +150,7 @@
 <input type="hidden" id="msg_fim" value="<?php echo $msg["msg_fim_atendimento"]; ?>">
 <input type="hidden" id="sem_expediente" value="<?php echo $msg["msg_sem_expediente"]; ?>">
 <input type="hidden" id="desc_inatividade" value="<?php echo $msg["msg_desc_inatividade"]; ?>">
+<input type="hidden" id="desc_nao_aceita_audio" value="<?php echo $msg["msg_nao_aceita_audio"]; ?>">
 <script type='text/javascript' src="cadastros/configuracoes/acoes.js"></script>
 <script type="text/javascript" src="js/farbtastic.js"></script>
 <link rel="stylesheet" href="css/farbtastic.css" type="text/css" />
@@ -173,6 +165,7 @@
 		$("#msg_fim_atendimento").val($("#msg_fim").val());
 		$("#msg_sem_expediente").val($("#sem_expediente").val());
 		$("#msg_desc_inatividade").val($("#desc_inatividade").val());
+        $("#msg_nao_aceita_audio").val($("#desc_nao_aceita_audio").val());
 		
 		// Fechar a Janela //
 		$('.fechar').on("click", function(){ fecharModal(); });
@@ -186,12 +179,14 @@
 		<form method="post" id="gravaConfiguracoes" name="grava" action="cadastros/configuracoes/salvar.php">
 	     <ul class="nav nav-tabs" id="myTab" role="tablist">
          <li class="nav-item" role="presentation">
-           <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Descrições</button>
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Descrições</button>
          </li>
           <li class="nav-item" role="presentation">
-           <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Opções</button>
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Opções</button>
           </li>
-         
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="extras-tab" data-bs-toggle="tab" data-bs-target="#extras-tab-pane" type="button" role="tab" aria-controls="extras-tab-pane" aria-selected="false">Ajustes Extras</button>
+          </li>
          </ul>
 		 
 		  <div class="tab-content" id="myTabContent">
@@ -226,8 +221,6 @@
 						placeholder="Informe a mensagem de [Desconexão por Inatividade]"></textarea>
 				</div>
 
-			
-			   
 			</div>
            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
 			
@@ -421,6 +414,48 @@
 				</div>
 			 </div>
 			 </div>
+
+              <div class="tab-pane fade" id="extras-tab-pane" role="tabpanel" aria-labelledby="extras-tab" tabindex="0">
+
+                  <div class="uk-width-1-1@m">
+                      <div class="uk-form-label"> <b>Titulo Aguardando</b> </div>
+                      <input class="uk-input" type="text" id="andamento" name="andamento" value="<?php echo $andamento; ?>" />
+                  </div>
+
+                  <div class="uk-width-1-1@m">
+                      <div class="uk-form-label"> <b>Titulo em Espera</b> </div>
+                      <input class="uk-input" type="text" id="espera" name="espera" value="<?php echo $espera; ?>" />
+                  </div>
+
+                  <div class="uk-width-1-1@m">
+                      <div class="uk-form-label"> <b>Titulo Sem Setor</b> </div>
+                      <input class="uk-input" type="text" id="sem_setor" name="sem_setor" value="<?php echo $sem_setor; ?>" />
+                  </div>
+
+                  <div class="uk-width-1-1@m">
+                      <div class="uk-form-label">
+                          <input class="uk-checkbox" type="checkbox" id="nao_exibir_triagem" name="nao_exibir_triagem" value="1" <?php echo $isCkdNaoExibirTriagem; ?> /> Não Exibir Atendimentos Sem Setor
+                      </div>
+                  </div>
+
+                  <div class="uk-width-1-1@m">
+                      <div class="uk-form-label">
+                          <input class="uk-checkbox" type="checkbox" id="menu_historico" name="menu_historico" value="1" <?php echo $isCkdMenu_historico; ?> /> Mostra Menu de Histórico para Operadores
+                      </div>
+                  </div>
+
+                  <div class="uk-width-1-1@m">
+                      <div class="uk-form-label">
+                          <input class="uk-checkbox" type="checkbox" id="nao_aceitar_audio" name="nao_aceitar_audio" value="1" <?php echo $isCkdNaoEnviarAudio; ?> /> Não Permitir que o cliente envie áudio
+                      </div>
+                  </div>
+
+                  <div class="uk-width-1-1@m">
+                      <div class="uk-form-label"> <b>Mensagem de alerta para audios</b> </div>
+                      <textarea class="uk-textarea" type="text" id="msg_nao_aceita_audio" name="msg_nao_aceita_audio" rows="4" placeholder="Digite aqui..."></textarea>
+                  </div>
+
+              </div>
             
              </div>	
 		    			

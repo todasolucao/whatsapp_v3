@@ -5,7 +5,8 @@
 	// Declaração de Variáveis //
 	$id = $_POST["id"];
 	$reacao = $_POST["reacao"];
-	
+
+    print_r($_POST);
 	$reagemsg = mysqli_query(
 		$conexao, 
 		"update tbmsgatendimento set reacao='$reacao', reagir=1, situacao='N' where chatid = '$id' "

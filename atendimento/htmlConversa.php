@@ -111,74 +111,73 @@
                                 <div class="_2VzPl">
                                     <div class="_1qUCC">
                                         <div class="_1-N6t">Emojis &amp; Pessoas</div>
+                                        <div class="_1-N6t">Novos Emojis</div>
                                         <div tabindex="-1">
-                                        <button type="button" class="emojik btn btn-sm">👍</button>
-                                        <button type="button" class="emojik btn btn-sm">😁</button>
-                                        <button type="button" class="emojik btn btn-sm">😂</button>
-                                        <button type="button" class="emojik btn btn-sm">😃</button>
-                                        <button type="button" class="emojik btn btn-sm">😄</button>
-                                        <button type="button" class="emojik btn btn-sm">😅</button>
-                                        <button type="button" class="emojik btn btn-sm">😆</button>
-                                        <button type="button" class="emojik btn btn-sm">😉</button>
-                                        <button type="button" class="emojik btn btn-sm">😊</button>
-                                        <button type="button" class="emojik btn btn-sm">😋</button>
-                                        <button type="button" class="emojik btn btn-sm">😌</button>
-                                        <button type="button" class="emojik btn btn-sm">😍</button>
-                                        <button type="button" class="emojik btn btn-sm">😏</button>
-                                        <button type="button" class="emojik btn btn-sm">😒</button>
-                                        <button type="button" class="emojik btn btn-sm">😓</button>
-                                        <button type="button" class="emojik btn btn-sm">😔</button>
-                                        <button type="button" class="emojik btn btn-sm">😖</button>
-                                        <button type="button" class="emojik btn btn-sm">😘</button>
-                                        <button type="button" class="emojik btn btn-sm">😚</button>
-                                        <button type="button" class="emojik btn btn-sm">😜</button>
-                                        <button type="button" class="emojik btn btn-sm">😝</button>
-                                        <button type="button" class="emojik btn btn-sm">😞</button>
-                                        <button type="button" class="emojik btn btn-sm">😠</button>
-                                        <button type="button" class="emojik btn btn-sm">😢</button>
-                                        <button type="button" class="emojik btn btn-sm">😤</button>
-                                        <button type="button" class="emojik btn btn-sm">😥</button>
-                                        <button type="button" class="emojik btn btn-sm">😨</button>
-                                        <button type="button" class="emojik btn btn-sm">😩</button>
-                                        <button type="button" class="emojik btn btn-sm">😪</button>
-                                        <button type="button" class="emojik btn btn-sm">😫</button>
-                                        <button type="button" class="emojik btn btn-sm">😭</button>
-                                        <button type="button" class="emojik btn btn-sm">😰</button>
-                                        <button type="button" class="emojik btn btn-sm">😱</button>
-                                        <button type="button" class="emojik btn btn-sm">😲</button>
-                                        <button type="button" class="emojik btn btn-sm">😳</button>
-                                        <button type="button" class="emojik btn btn-sm">😵</button>
-                                        <button type="button" class="emojik btn btn-sm">😷</button>
-                                        <button type="button" class="emojik btn btn-sm">😸</button>
-                                        <button type="button" class="emojik btn btn-sm">😹</button>
-                                        <button type="button" class="emojik btn btn-sm">😺</button>
-                                        <button type="button" class="emojik btn btn-sm">😻</button>
-                                        <button type="button" class="emojik btn btn-sm">😼</button>
-                                        <button type="button" class="emojik btn btn-sm">😽</button>
-                                        <button type="button" class="emojik btn btn-sm">😾</button>
-                                        <button type="button" class="emojik btn btn-sm">😿</button>
-                                        <button type="button" class="emojik btn btn-sm">🙀</button>
-                                        <button type="button" class="emojik btn btn-sm">🙅</button>
-                                        <button type="button" class="emojik btn btn-sm">🙆</button>
-                                        <button type="button" class="emojik btn btn-sm">🙇</button>
-                                        <button type="button" class="emojik btn btn-sm">🙈</button>
-                                        <button type="button" class="emojik btn btn-sm">🙉</button>
-                                        <button type="button" class="emojik btn btn-sm">🙊</button>
-                                        <button type="button" class="emojik btn btn-sm">🙋</button>
-                                        <button type="button" class="emojik btn btn-sm">🙌</button>
-                                        <button type="button" class="emojik btn btn-sm">🙍</button>
-                                        <button type="button" class="emojik btn btn-sm">🙎</button>
-                                        <!-- INI -->
-                                        <button type="button" class="emojik btn btn-sm">🚓</button>
-                                        <button type="button" class="emojik btn btn-sm">🐎</button>
-                                        <button type="button" class="emojik btn btn-sm">🚀</button>
-                                        <button type="button" class="emojik btn btn-sm">❌</button>
-                                        <button type="button" class="emojik btn btn-sm">✅</button>
-                                        <!-- <button type="button" class="emojik btn btn-sm">nnnn</button>
-                                        <button type="button" class="emojik btn btn-sm">nnnn</button> -->
-                                        <button type="button" class="emojik btn btn-sm">⚠️</button>
-                                        <!-- FIM -->
-                                        <button type="button" class="emojik btn btn-sm" onclick="if (!window.__cfRLUnblockHandlers) return false; InsereEmoji('🙏');" data-cf-modified-ef7614bf95d6d907da7ac829-="">🙏</button>
+                                            <button type="button" class="emojik btn btn-sm">👍</button>
+                                            <button type="button" class="emojik btn btn-sm">😁</button>
+                                            <button type="button" class="emojik btn btn-sm">😂</button>
+                                            <button type="button" class="emojik btn btn-sm">😃</button>
+                                            <button type="button" class="emojik btn btn-sm">😄</button>
+                                            <button type="button" class="emojik btn btn-sm">😅</button>
+                                            <button type="button" class="emojik btn btn-sm">😆</button>
+                                            <button type="button" class="emojik btn btn-sm">😉</button>
+                                            <button type="button" class="emojik btn btn-sm">😊</button>
+                                            <button type="button" class="emojik btn btn-sm">😋</button>
+                                            <button type="button" class="emojik btn btn-sm">😌</button>
+                                            <button type="button" class="emojik btn btn-sm">😍</button>
+                                            <button type="button" class="emojik btn btn-sm">😏</button>
+                                            <button type="button" class="emojik btn btn-sm">😒</button>
+                                            <button type="button" class="emojik btn btn-sm">😓</button>
+                                            <button type="button" class="emojik btn btn-sm">😔</button>
+                                            <button type="button" class="emojik btn btn-sm">😖</button>
+                                            <button type="button" class="emojik btn btn-sm">😘</button>
+                                            <button type="button" class="emojik btn btn-sm">😚</button>
+                                            <button type="button" class="emojik btn btn-sm">😜</button>
+                                            <button type="button" class="emojik btn btn-sm">😝</button>
+                                            <button type="button" class="emojik btn btn-sm">😞</button>
+                                            <button type="button" class="emojik btn btn-sm">😠</button>
+                                            <button type="button" class="emojik btn btn-sm">😢</button>
+                                            <button type="button" class="emojik btn btn-sm">😤</button>
+                                            <button type="button" class="emojik btn btn-sm">😥</button>
+                                            <button type="button" class="emojik btn btn-sm">😨</button>
+                                            <button type="button" class="emojik btn btn-sm">😩</button>
+                                            <button type="button" class="emojik btn btn-sm">😪</button>
+                                            <button type="button" class="emojik btn btn-sm">😫</button>
+                                            <button type="button" class="emojik btn btn-sm">😭</button>
+                                            <button type="button" class="emojik btn btn-sm">😰</button>
+                                            <button type="button" class="emojik btn btn-sm">😱</button>
+                                            <button type="button" class="emojik btn btn-sm">😲</button>
+                                            <button type="button" class="emojik btn btn-sm">😳</button>
+                                            <button type="button" class="emojik btn btn-sm">😵</button>
+                                            <button type="button" class="emojik btn btn-sm">😷</button>
+                                            <button type="button" class="emojik btn btn-sm">😸</button>
+                                            <button type="button" class="emojik btn btn-sm">😹</button>
+                                            <button type="button" class="emojik btn btn-sm">😺</button>
+                                            <button type="button" class="emojik btn btn-sm">😻</button>
+                                            <button type="button" class="emojik btn btn-sm">😼</button>
+                                            <button type="button" class="emojik btn btn-sm">😽</button>
+                                            <button type="button" class="emojik btn btn-sm">😾</button>
+                                            <button type="button" class="emojik btn btn-sm">😿</button>
+                                            <button type="button" class="emojik btn btn-sm">🙀</button>
+                                            <button type="button" class="emojik btn btn-sm">🙅</button>
+                                            <button type="button" class="emojik btn btn-sm">🙆</button>
+                                            <button type="button" class="emojik btn btn-sm">🙇</button>
+                                            <button type="button" class="emojik btn btn-sm">🙈</button>
+                                            <button type="button" class="emojik btn btn-sm">🙉</button>
+                                            <button type="button" class="emojik btn btn-sm">🙊</button>
+                                            <button type="button" class="emojik btn btn-sm">🙋</button>
+                                            <button type="button" class="emojik btn btn-sm">🙌</button>
+                                            <button type="button" class="emojik btn btn-sm">🙍</button>
+                                            <button type="button" class="emojik btn btn-sm">🙎</button>
+                                            <button type="button" class="emojik btn btn-sm">🚓</button>
+                                            <button type="button" class="emojik btn btn-sm">🐎</button>
+                                            <button type="button" class="emojik btn btn-sm">🚀</button>
+                                            <button type="button" class="emojik btn btn-sm">❌</button>
+                                            <button type="button" class="emojik btn btn-sm">✅</button>
+                                            <button type="button" class="emojik btn btn-sm">⚠️</button>
+
+                                            <!-- FIM -->
+                                            <button type="button" class="emojik btn btn-sm" onclick="if (!window.__cfRLUnblockHandlers) return false; InsereEmoji('🙏');" data-cf-modified-ef7614bf95d6d907da7ac829-="">🙏</button>
                                         </div>
                                     </div>
                                 </div>

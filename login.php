@@ -58,6 +58,7 @@
       
       //Caso esteja tudo certo prosseguimos com o login
       $_SESSION["usuariosaw"] = $arrUsuario;
+      $_SESSION["usuario"] = $arrUsuario;
 
       // Buscando as Informações do Departamento //
       $qryDepto = mysqli_query(
@@ -74,6 +75,8 @@
 
         $_SESSION["usuariosaw"]["idDepartamento"] = $resDepto['id'];
         $_SESSION["usuariosaw"]["nomeDepartamento"] = $resDepto['departamento'];
+        $_SESSION["usuario"]["idDepartamento"] = $resDepto['id'];
+        $_SESSION["usuario"]["nomeDepartamento"] = $resDepto['departamento'];
 
         // Sucesso //
         echo "1";
