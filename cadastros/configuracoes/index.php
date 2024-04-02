@@ -71,6 +71,7 @@
         $nao_aceitar_audio      = $msg["nao_aceitar_audio"];
         $msg_nao_aceita_audio   = str_replace("\\n","<br/>",["msg_nao_aceita_audio"]);
         $nao_exibir_triagem     = $msg["nao_exibir_triagem"];
+        $desativar_reacoes      = $msg["desativar_reacoes"];
 	
 		if( empty($msg["imagem_perfil"]) ){
 			$foto = 'images/sem_foto.png';	
@@ -142,6 +143,8 @@
 
         //Parametro para Não Exibir Triagem
         if ($nao_exibir_triagem === "1" ){ $isCkdNaoExibirTriagem = "checked"; }
+
+        if($desativar_reacoes === "1" ){ $isCkdDesativarReacoes = "checked"; }
 		
 	}
 ?>
@@ -435,6 +438,12 @@
                   <div class="uk-width-1-1@m">
                       <div class="uk-form-label">
                           <input class="uk-checkbox" type="checkbox" id="nao_exibir_triagem" name="nao_exibir_triagem" value="1" <?php echo $isCkdNaoExibirTriagem; ?> /> Não Exibir Atendimentos Sem Setor
+                      </div>
+                  </div>
+
+                  <div class="uk-width-1-1@m">
+                      <div class="uk-form-label">
+                          <input class="uk-checkbox" type="checkbox" id="desativar_reacoes" name="desativar_reacoes" value="1" <?php echo $isCkdDesativarReacoes; ?> /> Desativar Reações
                       </div>
                   </div>
 

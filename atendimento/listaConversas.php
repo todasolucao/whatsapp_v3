@@ -310,9 +310,13 @@
 								<input type="hidden" id="chatID" value="'.$chatID.'">
 								<input type="hidden" id="seq_msg" value="'.$seq_msg.'">
 								<input type="hidden" id="msg_original" value="'.htmlspecialchars($mensagem).'">
-								<a class="dropdown-item btnResponderMSG">Responder</a>
-								<a class="dropdown-item btnReagirMSG" href="#">Reagir à Mensagem</a>
-								<a class="dropdown-item btnApagarMSG" href="#">Apagar Mensagem</a>
+
+								<a class="dropdown-item btnResponderMSG">Responder</a>';
+
+                                if ( $_SESSION["parametros"]["desativar_reacoes"] == '0') {
+                                    echo '<a class="dropdown-item btnReagirMSG" href="#">Reagir à Mensagem</a>';
+                                }
+                                echo '
 							</div>
 						</div>
 
@@ -410,9 +414,12 @@
 							    <input type="hidden" id="chatID" value="'.$chatID.'">
 								<input type="hidden" id="seq_msg" value="'.$seq_msg.'">
 								<input type="hidden" id="msg_original" value="'.htmlspecialchars($mensagem).'">
-								<a class="dropdown-item btnResponderMSG">Responder</a>
-								<a class="dropdown-item btnReagirMSG" href="#">Reagir à Mensagem</a>
-								<a class="dropdown-item btnApagarMSG" href="#">Apagar Mensagem</a>
+								<a class="dropdown-item btnResponderMSG">Responder</a>';
+
+                                if ( $_SESSION["parametros"]["desativar_reacoes"] == '0') {
+                                    echo '<a class="dropdown-item btnReagirMSG" href="#">Reagir à Mensagem</a>';
+                                }
+                                echo '<a class="dropdown-item btnApagarMSG" href="#">Apagar Mensagem</a>
 							</div>
 						</div>
 				        </span>

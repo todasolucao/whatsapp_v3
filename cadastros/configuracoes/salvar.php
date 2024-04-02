@@ -37,8 +37,8 @@
     $menu_oculto                 = 0;
     $msg_nao_aceita_audio        = quebraDeLinha($_POST['msg_nao_aceita_audio']);
     $nao_exibir_triagem          = $_POST['nao_exibir_triagem'];
-
-$foto                         = $_POST["foto2"];
+    $desativar_reacoes           = $_POST['desativar_reacoes'];
+    $foto                         = $_POST["foto2"];
 
 // Atualiza a cor da tarja na Sessão //
 $_SESSION["parametros"]["color"] = $color;
@@ -86,7 +86,8 @@ if( mysqli_num_rows($existe) <= 0 ){
                 , '".$menu_oculto."'
                 , (CONCAT_WS(REPLACE('\\\ n', ' ', ''), ".$msg_nao_aceita_audio.")
                 , '".$menu_historico."'
-                , '".$nao_exibir_triagem."'";
+                , '".$nao_exibir_triagem."'
+                , '".$desativar_reacoes."'";
 
     if( $foto != "" ){
         $sql .= ",'".$foto."')";
@@ -133,7 +134,8 @@ if( mysqli_num_rows($existe) <= 0 ){
                   , menu_oculto = '".$menu_oculto."'
                   , msg_nao_aceita_audio = (CONCAT_WS(REPLACE('\\\ n', ' ', ''), ".$msg_nao_aceita_audio.")
                   , menu_historico = '".$menu_historico."'
-                  , nao_exibir_triagem = '".$nao_exibir_triagem."'";
+                  , nao_exibir_triagem = '".$nao_exibir_triagem."'
+                  , desativar_reacoes = '".$desativar_reacoes."'";
 
 
        if( $foto != "" ){
